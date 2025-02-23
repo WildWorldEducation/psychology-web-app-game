@@ -110,6 +110,5 @@ class MenuScene extends Phaser.Scene {
         this.formUtil.hideElement("r_bar_down_rate");
         this.formUtil.hideElement("r_bar_penalty_rate");
         this.formUtil.hideElement("r_bar_delay_amount");
-        this.formUtil.hideElement("admin_code");
     }
 }

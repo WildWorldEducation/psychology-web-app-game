@@ -42,10 +42,10 @@ class LeftTaskScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.audio("tone800hz", ["audio/high.wav"]);
-        this.load.audio("tone500hz", ["audio/medium.wav"]);
-        this.load.audio("tone200hz", ["audio/low.wav"]);
-        this.load.audio("lose", ["audio/glass-smash.wav"]);
+        this.load.audio("tone800hz", ["/audio/high.wav"]);
+        this.load.audio("tone500hz", ["/audio/medium.wav"]);
+        this.load.audio("tone200hz", ["/audio/low.wav"]);
+        this.load.audio("lose", ["/audio/glass-smash.wav"]);
     }
 
     create() {

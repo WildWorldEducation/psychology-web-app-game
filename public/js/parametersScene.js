@@ -67,10 +67,6 @@ class ParametersScene extends Phaser.Scene {
         this.formUtil.scaleToGameW("l_bar_delay_amount", .1);
         this.formUtil.placeElementAt(59, 'l_bar_delay_amount', true);
 
-        this.formUtil.showElement("admin_code");
-        this.formUtil.scaleToGameW("admin_code", .1);
-        this.formUtil.placeElementAt(107, 'admin_code', true);
-
 
         // Save button
         var roundedRect1 = this.add.graphics();
@@ -137,29 +133,17 @@ class ParametersScene extends Phaser.Scene {
         game.config.rPenaltyRate = this.rPenaltyRate;
         game.config.rDelayAmount = this.rDelayAmount;
 
-        if (this.formUtil.getTextAreaValue("admin_code") == "1967") {
-
-            // Save the parameters to the database.          
-            const requestOptions = {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(
-                    {
-                        left_climb_rate: this.lClimbRate,
-                        left_drop_amount: this.lDropRate,
-                        left_penalty_amount: this.lPenaltyRate,
-                        left_delay_amount: this.lDelayAmount,
-                        right_climb_rate: this.rClimbRate,
-                        right_drop_amount: this.rDropRate,
-                        right_penalty_amount: this.rPenaltyRate,
-                        right_delay_amount: this.rDelayAmount
-                    })
-            };
-
-            fetch('/parameters', requestOptions)
-                .then(() => {
-
-                });
+        var newParameters = {
+            left_climb_rate: this.lClimbRate,
+            left_drop_amount: this.lDropRate,
+            left_penalty_amount: this.lPenaltyRate,
+            left_delay_amount: this.lDelayAmount,
+            right_climb_rate: this.rClimbRate,
+            right_drop_amount: this.rDropRate,
+            right_penalty_amount: this.rPenaltyRate,
+            right_delay_amount: this.rDelayAmount,
         }
+        localStorage.setItem('parameters', JSON.stringify(newParameters));
+
     }
 }
